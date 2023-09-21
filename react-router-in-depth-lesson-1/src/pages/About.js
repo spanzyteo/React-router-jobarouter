@@ -1,6 +1,12 @@
-import React from 'react'
+import { useState } from 'react'
+import { Navigate } from 'react-router-dom'
 
 const About = () => {
+  const [user, setUser] = useState('mario')
+
+  if (!user) {
+    return <Navigate to="/" replace={true} />
+  }
   return (
     <div>
       <h2>About Us</h2>
@@ -8,7 +14,7 @@ const About = () => {
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi
         maiores eius officiis inventore, beatae magnam rem! Accusantium nobis
         fuga corrupti reprehenderit aut deserunt itaque in iusto. Ab nam minus
-        consequatur!
+        consequatur!~
       </p>
       <p>
         Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque dicta,
@@ -21,6 +27,8 @@ const About = () => {
         ipsa suscipit esse enim, deleniti ex, quos dicta repellendus quod
         tempore.
       </p>
+
+      <button onClick={() => setUser(null)}>Logout</button>
     </div>
   )
 }
